@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium.Chrome;
-using System;
+
 
 namespace FacebookClasses
 {
@@ -30,31 +29,59 @@ namespace FacebookClasses
         public void fill_sing_up_section(IWebDriver driver)
         {
             IWebElement element;
+            setup.verify_element_present(driver, FacebookToEnglish);
             element = driver.FindElement(FacebookToEnglish);
             setup.Click(element);
+
+            
             Assert.AreEqual("Connect with friends and the world around you on Facebook.", driver.FindElement(Facebook_Moto).Text);
+            
+            setup.verify_element_present(driver, CreateAccountButton);
             element = driver.FindElement(CreateAccountButton);
             setup.Click(element);
+
+            setup.verify_element_present(driver, first_name_field);
             element = driver.FindElement(first_name_field);
             setup.SendText(element, "Diego");
+
+            setup.verify_element_present(driver, last_name_field);
             element = driver.FindElement(last_name_field);
             setup.SendText(element, "Brockman");
+
+            setup.verify_element_present(driver, mobile_field);
             element = driver.FindElement(mobile_field);
             setup.SendText(element, "123456789");
+
+            setup.verify_element_present(driver, password_field);
             element = driver.FindElement(password_field);
             setup.SendText(element, "Secret1234");
+
+            setup.verify_element_present(driver, day_dropdown);
             element = driver.FindElement(day_dropdown);
             setup.Click(element);
+
+            setup.verify_element_present(driver, day_option);
             element = driver.FindElement(day_option);
             setup.Click(element);
+
+            setup.verify_element_present(driver, day_dropdown);
             element = driver.FindElement(day_dropdown);
             setup.Click(element);
+
+
+            setup.verify_element_present(driver, month_option);
             element = driver.FindElement(month_option);
             setup.Click(element);
+
+            setup.verify_element_present(driver, year_dropdown);
             element = driver.FindElement(year_dropdown);
             setup.Click(element);
+
+            setup.verify_element_present(driver, year_option);
             element = driver.FindElement(year_option);
             setup.Click(element);
+
+            setup.verify_element_present(driver, female_option);
             element = driver.FindElement(female_option);
             setup.Click(element);
         }
