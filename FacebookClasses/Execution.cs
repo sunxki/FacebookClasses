@@ -32,9 +32,6 @@ namespace FacebookClasses
             setup.verify_element_present(driver, FacebookToEnglish);
             element = driver.FindElement(FacebookToEnglish);
             setup.Click(element);
-
-            
-            Assert.AreEqual("Connect with friends and the world around you on Facebook.", driver.FindElement(Facebook_Moto).Text);
             
             setup.verify_element_present(driver, CreateAccountButton);
             element = driver.FindElement(CreateAccountButton);
